@@ -141,11 +141,18 @@ def decimate_array_to_1d(cfg, in_array, xy_factor=10, z_factor=1):
     return np.ravel(in_array[::x, ::y, ::z])
 
 
-def select_rpm(cfg):
-    if cfg.project == "example":
-        from rockphysics.rpm_example import RPMExample
+# def select_rpm(cfg):
+#     if cfg.project == "example":
+#         from rockphysics.rpm_example import RPMExample
 
-        rpm = RPMExample(cfg)
+#         rpm = RPMExample(cfg)
+#     return rpm
+
+def select_rpm(cfg):
+    if cfg.project == "new_rpm":
+        from rockphysics.new_rpm import F3RockPropertyModel
+
+        rpm = F3RockPropertyModel(cfg)
     return rpm
 
 
